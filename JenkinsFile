@@ -12,6 +12,9 @@ sh "mvn clean install"
 
 
 }
+tools {
+    maven 'Maven3'
+  }
 }
 
 post{
