@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Log Maven') {
-      steps {
-        sh 'mvn -version'
+      parallel {
+        stage('Log Maven') {
+          steps {
+            powershell(script: 'mnv --version', returnStatus: true)
+          }
+        }
+
+        stage('Run') {
+          steps {
+            bat 'mvn clean test'
+          }
+        }
+
       }
     }
 
