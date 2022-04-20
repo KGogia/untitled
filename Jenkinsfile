@@ -11,7 +11,7 @@ pipeline {
 
         stage('Run') {
           steps {
-            bat 'mvn clean test'
+            powershell 'mvn clean compile test'
           }
         }
 
